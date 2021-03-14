@@ -5,13 +5,13 @@ module.exports = function check(str, bracketsConfig) {
     let isDelete = true;
     let checkStr;
 
-    if (isDelete) {
+    while (isDelete) {
         checkStr = str;
         bracketsConfig.forEach(element => {
             str = str.replace(element, '');
         });
-
+        if (checkStr === str) isDelete = false;
     }
-    if (checkStr === str) isDelete = false;
+
     return str.length === 0;
 }
